@@ -22,6 +22,8 @@ class User extends Model implements JWTSubject, AuthenticatableContract, Authori
     protected $fillable = [
         'name',
         'email',
+        'rol',
+        'password',
     ];
 
     /**
@@ -30,7 +32,7 @@ class User extends Model implements JWTSubject, AuthenticatableContract, Authori
      * @var string[]
      */
     protected $hidden = [
-        'password',
+        //'password',
     ];
 
     /**
