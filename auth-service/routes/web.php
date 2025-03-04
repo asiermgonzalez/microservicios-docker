@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 /** @var \Laravel\Lumen\Routing\Router $router */
 
 $router->get('/', function () use ($router) {
-    echo "<center> Welcome </center>";
+    echo "<center> Microservicios con Lumen 10 </center>";
 });
 
 $router->get('/version', function () use ($router) {
@@ -14,5 +14,12 @@ $router->get('/version', function () use ($router) {
 
 
 
-$router->post('/register', 'AuthController@register');
 
+//$router->group(['prefix' =>'auth', 'middleware'=> 'jwt.verify'], function () use ($router) {
+$router->group(['prefix' =>'auth'], function () use ($router) {
+    $router->post('/login', 'AuthController@login');
+    $router->post('/register', 'AuthController@register');
+    $router->post('/logout', 'AuthController@logout');
+    $router->post('/refresh', 'AuthController@refresh');
+    $router->get('/me', 'AuthController@me');
+});
