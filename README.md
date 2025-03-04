@@ -19,11 +19,13 @@
 
 # Enlaces de interés
 
-Documentación Lumen: https://lumen.laravel.com/docs/10.x/installation
+Lumen: https://lumen.laravel.com/docs/10.x/installation
 
-Generador de strings aleatorios: https://www.unit-conversion.info/texttools/random-string-generator/#data
+Laravel-MongoDB: https://www.mongodb.com/docs/drivers/php/laravel-mongodb/current/quick-start/
 
 JWT para Lumen: https://dev.to/meherulsust/how-to-build-a-jwt-authenticated-api-with-lumen-831-171o
+
+Generador de strings aleatorios: https://www.unit-conversion.info/texttools/random-string-generator/#data
 
 
 # Autor:

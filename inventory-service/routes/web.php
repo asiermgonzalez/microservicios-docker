@@ -1,25 +1,20 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use MongoDB\Client;
 
 /** @var \Laravel\Lumen\Routing\Router $router */
 
 $router->get('/', function () use ($router) {
-    echo "<center> Microservicios con Lumen 10 </center>";
-});
-
-$router->get('/version', function () use ($router) {
-    return $router->app->version();
+    return $router->app->version() . ' - Microservicios con Lumen 10 - inventory-service';
 });
 
 
-
-
-//$router->group(['prefix' =>'auth', 'middleware'=> 'jwt.verify'], function () use ($router) {
-$router->group(['prefix' =>'auth'], function () use ($router) {
-    $router->post('/login', 'AuthController@login');
-    $router->post('/register', 'AuthController@register');
-    $router->post('/logout', 'AuthController@logout');
-    $router->post('/refresh', 'AuthController@refresh');
-    $router->get('/me', 'AuthController@me');
+//$router->group(['prefix' =>'products', 'middleware'=>'jwt.verify'], function () use ($router) {
+$router->group(['prefix' => 'products'], function () use ($router) {
+    $router->get('/', 'ProductController@index');
+    $router->post('/', 'ProductController@store');
+    $router->get('/{id}', 'ProductController@show');
+    $router->put('/{id}', 'ProductController@update');
+    $router->delete('/{id}', 'ProductController@destroy');
+    $router->get('/search', 'ProductController@searchByName');
 });

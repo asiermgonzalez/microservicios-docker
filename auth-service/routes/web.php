@@ -5,15 +5,8 @@ use Illuminate\Support\Facades\Route;
 /** @var \Laravel\Lumen\Routing\Router $router */
 
 $router->get('/', function () use ($router) {
-    echo "<center> Microservicios con Lumen 10 </center>";
+    return $router->app->version(). ' - Microservicios con Lumen 10 - auth-service';
 });
-
-$router->get('/version', function () use ($router) {
-    return $router->app->version();
-});
-
-
-
 
 //$router->group(['prefix' =>'auth', 'middleware'=> 'jwt.verify'], function () use ($router) {
 $router->group(['prefix' =>'auth'], function () use ($router) {
