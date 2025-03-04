@@ -9,12 +9,12 @@ $router->get('/', function () use ($router) {
 });
 
 
-//$router->group(['prefix' =>'products', 'middleware'=>'jwt.verify'], function () use ($router) {
-$router->group(['prefix' => 'products'], function () use ($router) {
+//$router->group(['prefix' => 'products'], function () use ($router) {
+$router->group(['prefix' =>'products', 'middleware'=>'jwt.verify'], function () use ($router) {
     $router->get('/', 'ProductController@index');
     $router->post('/', 'ProductController@store');
     $router->get('/{id}', 'ProductController@show');
+    $router->get('/search/searchByName', 'ProductController@searchByName');
     $router->put('/{id}', 'ProductController@update');
     $router->delete('/{id}', 'ProductController@destroy');
-    $router->get('/search', 'ProductController@searchByName');
 });

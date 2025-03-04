@@ -64,6 +64,7 @@ class ProductController extends Controller
             'category' => 'required|string|max:100',
             'available' => 'required|boolean',
             'ingredients' => 'required|array',
+            'quantity' => 'required|integer|min:0',
         ]);
 
         try {
@@ -91,6 +92,7 @@ class ProductController extends Controller
             'category' => 'string|max:100',
             'available' => 'boolean',
             'ingredients' => 'array',
+            'quantity' => 'integer|min:0',
         ]);
 
         try {
